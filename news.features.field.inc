@@ -106,7 +106,76 @@ function news_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '4',
+        'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-news_item-field_author'.
+  $fields['node-news_item-field_author'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_author',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'news_item',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'put authors name here',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 4,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_author',
+      'label' => 'Author',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '5',
       ),
     ),
   );
@@ -338,7 +407,7 @@ function news_field_default_fields() {
           'progress_indicator' => 'bar',
         ),
         'type' => 'image_image',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -449,6 +518,7 @@ If the term doesn\'t exist, it will be added to the database for future use upon
   // Translatables
   // Included for use with string extractors like potx.
   t('Add an image to the news item');
+  t('Author');
   t('Body');
   t('Date');
   t('Just start typing, if the term already exists it will auto-complete.  If the term auto-completes then press comma and you can start typing the next term. 
@@ -456,6 +526,7 @@ If the term doesn\'t exist, it will be added to the database for future use upon
 If the term doesn\'t exist, it will be added to the database for future use upon saving.');
   t('News Image');
   t('News Tags');
+  t('put authors name here');
 
   return $fields;
 }
